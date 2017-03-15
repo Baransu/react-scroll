@@ -213,7 +213,9 @@ var Helpers = {
         name: React.PropTypes.string,
         id:   React.PropTypes.string
       },
+      element: null,
       componentDidMount: function() {
+        /*         console.log(this.refs.element)*/
         this.registerElems(this.props.name);
       },
       componentWillReceiveProps: function(nextProps) {
@@ -225,11 +227,15 @@ var Helpers = {
         defaultScroller.unregister(this.props.name);
       },
       registerElems: function(name) {
-        var domNode = ReactDOM.findDOMNode(this);
-        defaultScroller.register(name, domNode);
+        var domNode = ReactDOM.findDOMNode(this)
+        defaultScroller.register(name, this.element);
+      },
+      bindNode: function(node) {
+        this.element = node
       },
       render: function() {
-        return React.createElement(Component, this.props);
+        var props = assign({}, this.props, { })
+        return React.createElement(Component, props)
       }
     });
   }

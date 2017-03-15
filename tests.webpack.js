@@ -1,2 +1,2 @@
-var context = require.context('./modules', true, /.js$/);
-context.keys().forEach(context);
+/* var context = require.context('./modules', true, /.js$/);
+ * context.keys().forEach(context);*/

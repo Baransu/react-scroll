@@ -27,13 +27,15 @@ describe('AnimateScroll', () => {
   // For some reason, sometimes test just fail because the animation did complete in time!
   const waitDuration = duration * 10;
 
-  let tallComponent =
+  let tallComponent = 
+    (
       <div id="hugeComponent">
         <a onClick={() => animateScroll.scrollToTop()}>Scroll To Top!</a>
         <a onClick={() => animateScroll.scrollTo(100)}>Scroll To 100!</a>
         <a onClick={() => animateScroll.scrollMore(10)}>Scroll More!</a>
         <div style={{height: '10000px'}}></div>
       </div>
+    )
 
   afterEach(function () {
     window.scrollTo(0, 0);
